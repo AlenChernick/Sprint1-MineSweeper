@@ -6,6 +6,16 @@
   font-weight: bold;
   text-align: center;
   margin: auto;
+  cursor: default;
+  transition: 0.5s;
+}
+
+body {
+  background: linear-gradient(
+    to right,
+    #373b44,
+    #4286f4
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 h1 {
@@ -25,26 +35,42 @@ h2 {
 }
 
 .clock {
-  font-size: 35px;
+  width: 100px;
+  font-size: 23px;
+  position: absolute;
+  left: 770px;
+  top: 197px;
+  text-shadow: 0 1px 1px white;
+  font-family: 'PT Sans', sans-serif;
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+  background-color: #8ec5fc;
+  text-align: center;
+}
+
+.clock:hover {
+  background-color: #1889fa;
+  box-shadow: 0px 0px 1px rgb(255, 246, 246);
 }
 
 footer {
   text-align: center;
-  margin-top: 150px;
+  margin-top: 80px;
   font-size: 22px;
 }
 
-button {
+.restart-button {
   width: 100px;
   height: 58px;
   font-size: 36px;
   padding-bottom: 50px;
-  box-shadow: 0px 0px 4px black;
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+  background-color: #8ec5fc;
+  border: none;
 }
 
-button:hover {
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 0px 4px black;
+.restart-button:hover {
+  background-color: #1889fa;
+  box-shadow: 0px 0px 1px rgb(255, 246, 246);
 }
 
 table {
@@ -52,8 +78,8 @@ table {
 }
 
 .cell {
-  height: 70px;
-  width: 70px;
+  height: 100px;
+  width: 100px;
   box-shadow: 0px 0px 4px black;
   font-size: 35px;
   color: rgb(72, 72, 72);
@@ -66,6 +92,32 @@ table {
 
 .cell-shown {
   background-color: rgb(104, 230, 255);
+}
+
+.modal-container {
+  background-color: black;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 150px;
+}
+
+.modal {
+  background-color: rgba(252, 0, 0, 0.309);
+  box-shadow: 0px 0px 5px rgb(250, 250, 250);
+  width: 220px;
+  height: 80px;
+  position: absolute;
+  left: 850px;
+  top: 500px;
+  display: none;
+}
+
+.modal:hover {
+  background-color: rgba(0, 255, 81, 0.309);
+}
+
+.modal h2 {
+  font-size: 40px;
 }
 
 @keyframes winker {

@@ -10,10 +10,16 @@
   <body onload="init()">
     <div class="game-container">
       <h1 class="title">MineSweeper</h1>
-      <div class="clock">Time: <span class="timer">00:00:00</span></div>
-      <h2>Mines: <span class="mines-count">0</span></h2>
-      <button>😃</button>
+      <div class="clock">
+        TIMER<br />
+        0:0:00
+      </div>
+      <h2>Revealed: <span class="mines-count">0</span></h2>
+      <button class="restart-button" onclick="restartGame()">😃</button>
       <table>
+        <div class="modal">
+          <h2>Game over</h2>
+        </div>
         <tbody class="board-conatiner"></tbody>
       </table>
     </div>

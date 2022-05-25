@@ -1,3 +1,5 @@
+var gTotalSeconds = 0;
+
 function createMat(ROWS, COLS = ROWS) {
   var mat = [];
   for (var i = 0; i < ROWS; i++) {
@@ -25,4 +27,14 @@ function getCellCoord(strCellId) {
   var parts = strCellId.split('-');
   var coord = { i: +parts[1], j: +parts[2] };
   return coord;
+}
+
+function countUpTimer() {
+  ++gTotalSeconds;
+  var hour = Math.floor(gTotalSeconds / 3600);
+  var minute = Math.floor((gTotalSeconds - hour * 3600) / 60);
+  var seconds = gTotalSeconds - (hour * 3600 + minute * 60);
+  var elTimer = document.querySelector('.clock');
+  elTimer.innerHTML = 'TIMER' + '<br>' + hour + ':' + minute + ':' + seconds;
+  elTimer.style.display = 'block';
 }
