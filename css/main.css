@@ -26,12 +26,27 @@ h1 {
   animation-name: winker;
   animation-duration: 2s;
   animation-iteration-count: infinite;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
 }
 
-h2 {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  font-size: 32px;
+.revealed-count {
+  width: 100px;
+  height: 58px;
+  position: absolute;
+  left: 1050px;
+  top: 140px;
+  background-color: #8ec5fc;
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+
+.revealed-count:hover {
+  background-color: #1889fa;
+  box-shadow: 0px 0px 1px rgb(255, 246, 246);
+}
+
+.revealed-count h2 {
+  padding-top: 10px;
+  font-size: 21px;
 }
 
 .clock {
@@ -39,7 +54,7 @@ h2 {
   font-size: 23px;
   position: absolute;
   left: 770px;
-  top: 197px;
+  top: 140px;
   text-shadow: 0 1px 1px white;
   font-family: 'PT Sans', sans-serif;
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
@@ -54,7 +69,7 @@ h2 {
 
 footer {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 30px;
   font-size: 22px;
 }
 
@@ -66,6 +81,7 @@ footer {
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
   background-color: #8ec5fc;
   border: none;
+  cursor: pointer;
 }
 
 .restart-button:hover {
@@ -78,11 +94,12 @@ table {
 }
 
 .cell {
-  height: 100px;
-  width: 100px;
+  width: 43px;
+  height: 43px;
   box-shadow: 0px 0px 4px black;
-  font-size: 35px;
+  font-size: 28px;
   color: rgb(72, 72, 72);
+  cursor: pointer;
 }
 
 .cell-hidden {
@@ -102,13 +119,13 @@ table {
 }
 
 .modal {
-  background-color: rgba(252, 0, 0, 0.309);
+  background-color: rgba(207, 207, 207, 0.476);
   box-shadow: 0px 0px 5px rgb(250, 250, 250);
   width: 220px;
   height: 80px;
   position: absolute;
   left: 850px;
-  top: 500px;
+  top: 400px;
   display: none;
 }
 
@@ -117,7 +134,32 @@ table {
 }
 
 .modal h2 {
+  margin-top: 20px;
   font-size: 40px;
+}
+
+.button-container {
+  margin-top: 30px;
+  text-align: center;
+  margin-left: 50px;
+}
+
+.button-container button {
+  font-size: 25px;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  margin-right: 50px;
+  padding: 5px;
+  background-color: #8ec5fc;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 0px 4px black;
+}
+
+.button-container button:hover {
+  background-color: #1889fa;
+  box-shadow: 0px 0px 1px rgb(255, 246, 246);
 }
 
 @keyframes winker {
