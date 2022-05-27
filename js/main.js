@@ -31,8 +31,6 @@ function init() {
   gGame.markedCount = 0;
   gGame.shownCount = 0;
   gTotalSeconds = 0;
-  gLevel.MINES = gLevel.MINES;
-  gLevel.SIZE = gLevel.SIZE;
   userLife = 3;
 }
 
@@ -129,7 +127,6 @@ function cellClicked(elCell, i, j) {
     if (userLife === 0) {
       elLife3.style.color = '#523734';
     }
-    return;
   }
 
   if (!gGame.isOn) return;
@@ -165,6 +162,8 @@ function cellClicked(elCell, i, j) {
   }
   checkGameOver(gBoard);
   if (clickedCell.isMine) {
+    clickedCell.isMine = true;
+    clickedCell.isShown = true;
     elCell.innerHTML = mineIcon;
     return;
   }
@@ -197,47 +196,70 @@ function cellMarked(event, elCell, i, j) {
 }
 
 function checkGameOver(board) {
+  var elCellMine;
   var elModal = document.querySelector('.modal');
   var elModalTxt = document.querySelector('.modal h2');
   var elRestartButton = document.querySelector('.restart-button');
   for (var i = 0; i < board.length; i++) {
     for (var j = 0; j < board[0].length; j++) {
       var currCell = board[i][j];
-      // check if he lost
-      if (currCell.isMine && currCell.isShown) {
-        clearInterval(gTimerInterval);
-        gGame.isOn = false;
-        elModal.style.display = 'block';
-        elRestartButton.innerText = '🤯';
-      }
-
-      // check if he won
+      // check if he win or he loss
       if (gLevel.SIZE === 4) {
-        if ((currCell.isMine && currCell.isMarked && gGame.shownCount === 14) || gGame.shownCount === 14) {
+        if (gGame.shownCount > 13) {
           clearInterval(gTimerInterval);
           gGame.isOn = false;
           elModal.style.display = 'block';
           elModalTxt.innerText = 'You Won';
+          elModalTxt.style.color = 'rgb(122, 250, 152)';
           elRestartButton.innerText = '😎';
+        }
+        if (currCell.isShown && currCell.isMine && gGame.shownCount <= 14) {
+          clearInterval(gTimerInterval);
+          currCell.isMine = true;
+          gGame.isOn = false;
+          elModal.style.display = 'block';
+          elModalTxt.innerText = 'Game Over';
+          elModalTxt.style.color = 'rgb(179, 76, 76)';
+          elRestartButton.innerText = '🤯';
         }
       }
       if (gLevel.SIZE === 8) {
-        if ((currCell.isMine && currCell.isMarked && gGame.shownCount === 52) || gGame.shownCount === 52) {
+        if (gGame.shownCount > 51) {
           clearInterval(gTimerInterval);
           gGame.isOn = false;
           elModal.style.display = 'block';
           elModalTxt.innerText = 'You Won';
+          elModalTxt.style.color = 'rgb(122, 250, 152)';
           elRestartButton.innerText = '😎';
+        }
+        if (currCell.isShown && currCell.isMine && gGame.shownCount <= 52) {
+          clearInterval(gTimerInterval);
+          currCell.isMine = true;
+          gGame.isOn = false;
+          elModal.style.display = 'block';
+          elModalTxt.innerText = 'Game Over';
+          elModalTxt.style.color = 'rgb(179, 76, 76)';
+          elRestartButton.innerText = '🤯';
         }
       }
 
       if (gLevel.SIZE === 12) {
-        if ((currCell.isMine && currCell.isMarked && gGame.shownCount === 114) || gGame.shownCount === 114) {
+        if (gGame.shownCount > 113) {
           clearInterval(gTimerInterval);
           gGame.isOn = false;
           elModal.style.display = 'block';
           elModalTxt.innerText = 'You Won';
+          elModalTxt.style.color = 'rgb(122, 250, 152)';
           elRestartButton.innerText = '😎';
+        }
+        if (currCell.isShown && currCell.isMine && gGame.shownCount <= 114) {
+          clearInterval(gTimerInterval);
+          currCell.isMine = true;
+          gGame.isOn = false;
+          elModal.style.display = 'block';
+          elModalTxt.innerText = 'Game Over';
+          elModalTxt.style.color = 'rgb(179, 76, 76)';
+          elRestartButton.innerText = '🤯';
         }
       }
     }
@@ -313,6 +335,7 @@ function boardSizeDifficulty(board) {
     gBoard = buildBoard();
     renderBoard(gBoard);
   }
+  return board;
 }
 
 function lifeSupport(board) {
