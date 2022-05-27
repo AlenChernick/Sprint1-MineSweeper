@@ -109,6 +109,7 @@ function cellClicked(elCell, i, j) {
   var elLife1 = document.querySelector('.life1');
   var elLife2 = document.querySelector('.life2');
   var elLife3 = document.querySelector('.life3');
+
   if (clickedCell.isMine && userLife > 0) {
     lifeSupport(gBoard);
     clickedCell.isMine = false;
@@ -196,7 +197,6 @@ function cellMarked(event, elCell, i, j) {
 }
 
 function checkGameOver(board) {
-  var elCellMine;
   var elModal = document.querySelector('.modal');
   var elModalTxt = document.querySelector('.modal h2');
   var elRestartButton = document.querySelector('.restart-button');
@@ -213,7 +213,7 @@ function checkGameOver(board) {
           elModalTxt.style.color = 'rgb(122, 250, 152)';
           elRestartButton.innerText = '😎';
         }
-        if (currCell.isShown && currCell.isMine && gGame.shownCount <= 14) {
+        if (currCell.isShown && currCell.isMine) {
           clearInterval(gTimerInterval);
           currCell.isMine = true;
           gGame.isOn = false;
@@ -222,6 +222,7 @@ function checkGameOver(board) {
           elModalTxt.style.color = 'rgb(179, 76, 76)';
           elRestartButton.innerText = '🤯';
         }
+        checkMineOnBoard(gBoard);
       }
       if (gLevel.SIZE === 8) {
         if (gGame.shownCount > 51) {
@@ -232,7 +233,7 @@ function checkGameOver(board) {
           elModalTxt.style.color = 'rgb(122, 250, 152)';
           elRestartButton.innerText = '😎';
         }
-        if (currCell.isShown && currCell.isMine && gGame.shownCount <= 52) {
+        if (currCell.isShown && currCell.isMine) {
           clearInterval(gTimerInterval);
           currCell.isMine = true;
           gGame.isOn = false;
@@ -241,8 +242,8 @@ function checkGameOver(board) {
           elModalTxt.style.color = 'rgb(179, 76, 76)';
           elRestartButton.innerText = '🤯';
         }
+        checkMineOnBoard(gBoard);
       }
-
       if (gLevel.SIZE === 12) {
         if (gGame.shownCount > 113) {
           clearInterval(gTimerInterval);
@@ -252,7 +253,7 @@ function checkGameOver(board) {
           elModalTxt.style.color = 'rgb(122, 250, 152)';
           elRestartButton.innerText = '😎';
         }
-        if (currCell.isShown && currCell.isMine && gGame.shownCount <= 114) {
+        if (currCell.isShown && currCell.isMine) {
           clearInterval(gTimerInterval);
           currCell.isMine = true;
           gGame.isOn = false;
@@ -261,6 +262,7 @@ function checkGameOver(board) {
           elModalTxt.style.color = 'rgb(179, 76, 76)';
           elRestartButton.innerText = '🤯';
         }
+        checkMineOnBoard(gBoard);
       }
     }
   }
@@ -293,7 +295,7 @@ function expandShown(board, elCell, rowIdx, colIdx) {
       if (i === rowIdx && j === colIdx) continue;
       var currCell = board[i][j];
       if (currCell.isShown) continue;
-      var cellId = '#' + getClassName({ i, j });
+      var cellId = '#' + getIdName({ i, j });
 
       // update the model
       currCell.isShown = true;
@@ -338,13 +340,16 @@ function boardSizeDifficulty(board) {
   return board;
 }
 
-function lifeSupport(board) {
-  for (var i = 0; i < board.length; i++) {
-    for (var j = 0; j < board[i].length; j++) {
-      if (userLife > 0) {
-        userLife--;
-        return userLife;
-      }
-    }
-  }
-}
+// function getHint(board) {
+//   var counter = 0;
+//   for (var i = rowIdx - 1; i <= rowIdx + 1; i++) {
+//     if (i < 0 || i >= board.length) continue;
+//     for (var j = colIdx - 1; j <= colIdx + 1; j++) {
+//       if (j < 0 || j >= board[i].length) continue;
+//       if (i === rowIdx && j === colIdx) continue;
+//       var currCell = board[i][j];
+//       if (currCell.isMine) counter++;
+//     }
+//   }
+//   return counter;
+// }
