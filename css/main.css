@@ -7,7 +7,6 @@
   text-align: center;
   margin: auto;
   cursor: default;
-  transition: 0.5s;
 }
 
 body {
@@ -21,12 +20,13 @@ body {
 h1 {
   font-size: 65px;
   margin-bottom: 25px;
-  margin-top: 35px;
+  margin-top: 5px;
   padding-top: 15px;
   animation-name: winker;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   text-shadow: 0px 0px 5px rgb(0, 0, 0);
+  text-decoration: underline;
 }
 
 .revealed-count {
@@ -37,6 +37,7 @@ h1 {
   top: 140px;
   background-color: #8ec5fc;
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
+  transition: 0.5s;
 }
 
 .revealed-count:hover {
@@ -60,6 +61,7 @@ h1 {
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
   background-color: #8ec5fc;
   text-align: center;
+  transition: 0.5s;
 }
 
 .clock:hover {
@@ -77,11 +79,13 @@ footer {
   width: 100px;
   height: 58px;
   font-size: 36px;
-  padding-bottom: 50px;
+  padding-bottom: 15px;
+  margin-top: 21px;
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
   background-color: #8ec5fc;
   border: none;
   cursor: pointer;
+  transition: 0.5s;
 }
 
 .restart-button:hover {
@@ -90,7 +94,7 @@ footer {
 }
 
 table {
-  margin-top: 50px;
+  margin-top: 135px;
 }
 
 .cell {
@@ -100,10 +104,11 @@ table {
   font-size: 28px;
   color: rgb(72, 72, 72);
   cursor: pointer;
+  transition: 0.5s;
 }
 
 .cell-hidden {
-  background-color: rgb(134, 177, 186);
+  background-color: #7490ac;
   box-shadow: 0px 0px 4px black;
 }
 
@@ -121,12 +126,13 @@ table {
 .modal {
   background-color: rgba(207, 207, 207, 0.476);
   box-shadow: 0px 0px 5px rgb(250, 250, 250);
-  width: 220px;
+  width: 180px;
   height: 80px;
   position: absolute;
-  left: 850px;
+  left: 870px;
   top: 400px;
   display: none;
+  transition: 0.5s;
 }
 
 .modal:hover {
@@ -134,14 +140,29 @@ table {
 }
 
 .modal h2 {
-  margin-top: 20px;
-  font-size: 40px;
+  margin-top: 25px;
+  font-size: 32px;
 }
 
 .button-container {
   margin-top: 30px;
   text-align: center;
   margin-left: 50px;
+}
+
+.button-container .easy {
+  position: absolute;
+  left: 770px;
+}
+
+.button-container .normal {
+  position: absolute;
+  left: 910px;
+}
+
+.button-container .hard {
+  position: absolute;
+  right: 720px;
 }
 
 .button-container button {
@@ -155,11 +176,27 @@ table {
   cursor: pointer;
   border: none;
   box-shadow: 0px 0px 4px black;
+  transition: 0.5s;
 }
 
 .button-container button:hover {
   background-color: #1889fa;
   box-shadow: 0px 0px 1px rgb(255, 246, 246);
+}
+
+.health-container {
+  font-size: 35px;
+  position: absolute;
+  top: 135px;
+  left: 700px;
+  color: #e74c3c;
+  text-shadow: 0px 0px 4px black;
+  transition: 0.5s;
+}
+
+.health-container .life:hover {
+  text-shadow: 0px 0px 4px rgb(255, 255, 255);
+  color: #fb877b;
 }
 
 @keyframes winker {

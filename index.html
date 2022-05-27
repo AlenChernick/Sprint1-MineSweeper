@@ -5,28 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/main.css" />
-    <title>Mine Sweeper</title>
+    <title>MineSweeper</title>
   </head>
   <body onload="init()">
     <div class="game-container">
-      <h1 class="title">MineSweeper</h1>
-      <button class="restart-button" onclick="restartGame()">😃</button>
-      <div class="button-container">
-        <button onclick="boardSizeDifficulty(8)">Easy</button>
-        <button onclick="boardSizeDifficulty(16)">Normal</button>
-        <button onclick="boardSizeDifficulty(24)">Hard</button>
-      </div>
+      <h1 class="title">MineSweeper<i class="fas fa-bomb"></i></h1>
       <div class="clock">
         TIMER<br />
         0:0:00
       </div>
+      <button class="restart-button" onclick="restartGame()">😃</button>
+      <div class="button-container">
+        <button class="easy" onclick="boardSizeDifficulty(8)">Easy</button>
+        <button class="normal" onclick="boardSizeDifficulty(16)">Normal</button>
+        <button class="hard" onclick="boardSizeDifficulty(24)">Hard</button>
+      </div>
       <div class="revealed-count">
         <h2>Revealed <span class="revealed-number">0</span></h2>
       </div>
+      <div class="modal">
+        <h2>Game over</h2>
+      </div>
+      <div class="health-container">
+        <div class="life life1">❤</div>
+        <div class="life life2">❤</div>
+        <div class="life life3">❤</div>
+      </div>
       <table>
-        <div class="modal">
-          <h2>Game over</h2>
-        </div>
         <tbody class="board-conatiner"></tbody>
       </table>
     </div>
