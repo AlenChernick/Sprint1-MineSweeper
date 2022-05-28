@@ -16,9 +16,9 @@
       </div>
       <button class="restart-button" onclick="restartGame()">😃</button>
       <div class="button-container">
-        <button class="easy" onclick="boardSizeDifficulty(8)">Easy</button>
-        <button class="normal" onclick="boardSizeDifficulty(16)">Normal</button>
-        <button class="hard" onclick="boardSizeDifficulty(24)">Hard</button>
+        <button class="easy" onclick="boardSizeDifficulty(4)">Easy</button>
+        <button class="normal" onclick="boardSizeDifficulty(8)">Normal</button>
+        <button class="hard" onclick="boardSizeDifficulty(12)">Hard</button>
       </div>
       <div class="revealed-count">
         <h2>Revealed <span class="revealed-number">0</span></h2>
@@ -32,9 +32,15 @@
         <div class="life life3">❤</div>
       </div>
       <div class="hints-container">
-        <div onclick="getHint(this)" class="hint hint1"><i class="fa-regular fa-lightbulb"></i></div>
-        <div onclick="getHint(this)" class="hint hint2"><i class="fa-regular fa-lightbulb"></i></div>
-        <div onclick="getHint(this)" class="hint hint3"><i class="fa-regular fa-lightbulb"></i></div>
+        <div onclick="hint()" class="hint hint3">
+          <i class="fa-regular fa-lightbulb"></i>
+        </div>
+        <div onclick="hint()" class="hint hint2">
+          <i class="fa-regular fa-lightbulb"></i>
+        </div>
+        <div onclick="hint()" class="hint hint1">
+          <i class="fa-regular fa-lightbulb"></i>
+        </div>
       </div>
       <table>
         <tbody class="board-conatiner"></tbody>
@@ -43,6 +49,7 @@
     <script src="https://kit.fontawesome.com/f7bbd11b0d.js" crossorigin="anonymous"></script>
     <script src="js/util.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/gameSupport.js"></script>
     <footer>Created-By-Alen-Chernick-CodingAcadamy-May22-Sprint</footer>
   </body>
 </html>

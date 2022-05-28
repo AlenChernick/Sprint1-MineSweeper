@@ -1,3 +1,4 @@
+'use strict';
 var gTotalSeconds = 0;
 
 function createMat(ROWS, COLS = ROWS) {
@@ -37,31 +38,4 @@ function countUpTimer() {
   var elTimer = document.querySelector('.clock');
   elTimer.innerHTML = 'TIMER' + '<br>' + hour + ':' + minute + ':' + seconds;
   elTimer.style.display = 'block';
-}
-
-function lifeSupport(board) {
-  for (var i = 0; i < board.length; i++) {
-    for (var j = 0; j < board[i].length; j++) {
-      if (userLife > 0) {
-        userLife--;
-        return userLife;
-      }
-    }
-  }
-}
-
-function checkMineOnBoard(board) {
-  for (var i = 0; i < board.length; i++) {
-    for (var j = 0; j < board[i].length; j++) {
-      var currCell = board[i][j];
-      var cellId = '#' + getIdName({ i, j });
-      var elBombCell = document.querySelector(cellId);
-      if (!currCell.isMine) continue;
-      if (currCell.isMine && !gGame.isOn) {
-        currCell.isShown = true;
-        elBombCell.classList.add('cell-shown');
-        elBombCell.innerHTML = mineIcon;
-      }
-    }
-  }
 }
