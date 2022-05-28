@@ -3,9 +3,9 @@
 function lifeSupport(board) {
   for (var i = 0; i < board.length; i++) {
     for (var j = 0; j < board[i].length; j++) {
-      if (userLife > 0) {
-        userLife--;
-        return userLife;
+      if (life > 0) {
+        life--;
+        return life;
       }
     }
   }
@@ -24,17 +24,26 @@ function changeLifeToBordo() {
   var elLife1 = document.querySelector('.life1');
   var elLife2 = document.querySelector('.life2');
   var elLife3 = document.querySelector('.life3');
-  if (userLife === 2) {
+  if (life === 2) {
     elLife1.style.color = '#523734';
   }
 
-  if (userLife === 1) {
+  if (life === 1) {
     elLife2.style.color = '#523734';
   }
 
-  if (userLife === 0) {
+  if (life === 0) {
     elLife3.style.color = '#523734';
   }
+}
+
+function changeAllHintsBackToYellow() {
+  var elHint3 = document.querySelector('.hint3');
+  var elHint2 = document.querySelector('.hint2');
+  var elHint1 = document.querySelector('.hint1');
+  elHint3.style.color = 'rgb(248, 248, 32)';
+  elHint2.style.color = 'rgb(248, 248, 32)';
+  elHint1.style.color = 'rgb(248, 248, 32)';
 }
 
 function winnerUpdate() {
@@ -91,7 +100,8 @@ function checkMineOnBoard(board) {
 
 function boardSizeDifficulty(board) {
   //checks the difficuly of the game,
-  //and update the dom,model and render new board
+  //and update the dom,model
+  // restartGame();
   if (board === 4) {
     gLevel.SIZE = 4;
     gLevel.MINES = 2;
